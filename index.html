@@ -627,7 +627,9 @@
         <p style="font:400 16px/1.7 var(--sans);color:var(--ink2);margin:0 0 32px;max-width:56ch">Facoltativo, ma prezioso. Una fotografia, uno schizzo, un luogo — qualsiasi cosa dia radici all’idea.</p>
         <sc-if value="{{ cRef }}" hint-placeholder-val="{{ false }}">
           <div style="display:flex;align-items:center;gap:20px;background:var(--card);border:1px solid var(--accent);border-radius:3px;padding:18px">
-            <div style="width:76px;height:76px;flex:none;background-color:#EEE7D8;background-image:repeating-linear-gradient(135deg,rgba(94,75,54,.06) 0 1px,transparent 1px 12px);border-radius:2px"></div>
+            <div style="width:76px;height:76px;flex:none;position:relative;overflow:hidden;border-radius:2px;background-color:#EEE7D8">
+              <img src="{{ refImg }}" alt="{{ cRefName }}" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block">
+            </div>
             <div style="flex:1"><span style="display:block;font:500 14px/1.3 var(--sans);color:var(--ink)">{{ cRefName }}</span><span style="font:400 12px/1.4 var(--sans);color:var(--ink3)">Riferimento caricato · 2,4 MB</span></div>
             <button sc-camel-on-click="{{ clearRef }}" style="font:500 11px/1 var(--sans);letter-spacing:.12em;text-transform:uppercase;color:var(--ink3)" style-hover="color:var(--ink)">Rimuovi</button>
           </div>
@@ -707,8 +709,9 @@
       <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(260px,100%),1fr));gap:clamp(18px,2vw,32px);margin-bottom:clamp(40px,5vw,64px)">
         <sc-for list="{{ concepts }}" as="c" hint-placeholder-count="3">
           <button sc-camel-on-click="{{ c.pick }}" style="text-align:left;background:var(--card);border:1px solid {{ c.bd }};border-radius:3px;overflow:hidden;transition:border-color .3s;position:relative">
-            <div style="aspect-ratio:4/5;position:relative;background-color:#EAE2D2;background-image:repeating-linear-gradient(135deg,rgba(94,75,54,.06) 0 1px,transparent 1px 15px);display:flex;align-items:center;justify-content:center">
-              <span style="font:500 10px/1.4 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:#A79E8C;border:1px solid rgba(94,75,54,.2);padding:7px 11px;text-align:center">Concept IA {{ c.n }}</span>
+            <div style="aspect-ratio:4/5;position:relative;overflow:hidden;background-color:#EAE2D2">
+              <img src="{{ c.img }}" alt="Concept {{ c.n }}" loading="lazy" style="width:100%;height:100%;object-fit:cover;object-position:{{ c.pos }};transform:scale({{ c.sc }});display:block">
+              <span style="position:absolute;left:12px;bottom:12px;font:500 10px/1.4 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:#F5F1E8;background:rgba(24,21,17,.55);padding:6px 10px">Concept IA {{ c.n }}</span>
               <sc-if value="{{ c.sel }}" hint-placeholder-val="{{ false }}"><span style="position:absolute;top:14px;right:14px;width:26px;height:26px;border-radius:50%;background:var(--accent);color:#fff;display:flex;align-items:center;justify-content:center;font:600 13px/1 var(--sans)">✓</span></sc-if>
             </div>
             <div style="padding:20px 22px;display:flex;align-items:baseline;justify-content:space-between;gap:10px"><span style="font:400 1.4rem/1 var(--display);color:var(--ink)">Concept {{ c.n }}</span><span style="font:400 12.5px/1.3 var(--sans);color:var(--ink3)">{{ c.note }}</span></div>
@@ -719,8 +722,11 @@
       <sc-if value="{{ hasConcept }}" hint-placeholder-val="{{ false }}">
         <div style="border-top:1px solid var(--line);padding-top:clamp(36px,4vw,56px);display:flex;flex-wrap:wrap;gap:clamp(28px,4vw,56px);animation:auFade .5s ease both">
           <div style="flex:1 1 320px;min-width:min(280px,100%)">
-            <div style="aspect-ratio:4/5;position:relative;background-color:#EAE2D2;background-image:repeating-linear-gradient(135deg,rgba(94,75,54,.06) 0 1px,transparent 1px 15px);display:flex;align-items:center;justify-content:center;border:1px solid var(--line2)">
-              <span style="font:500 10px/1.4 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:#A79E8C;border:1px solid rgba(94,75,54,.2);padding:7px 11px">Concept {{ selConceptLabel }} · Anteprima</span>
+            <div style="aspect-ratio:4/5;position:relative;overflow:hidden;background-color:#EAE2D2;border:1px solid var(--line2)">
+              <img src="{{ preview.img }}" alt="Concept {{ selConceptLabel }}" loading="lazy" style="width:100%;height:100%;object-fit:cover;object-position:{{ preview.pos }};transform:scale({{ preview.sc }});filter:{{ preview.filter }};display:block;transition:filter .35s ease">
+              <span aria-hidden="true" style="position:absolute;inset:0;pointer-events:none;background:{{ preview.tint }};mix-blend-mode:{{ preview.blend }};transition:background .35s ease"></span>
+              <span aria-hidden="true" style="position:absolute;inset:0;pointer-events:none;background:{{ preview.warm }};mix-blend-mode:soft-light;transition:background .35s ease"></span>
+              <span style="position:absolute;left:14px;bottom:14px;font:500 10px/1.4 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:#F5F1E8;background:rgba(24,21,17,.55);padding:7px 11px">Concept {{ selConceptLabel }} · Anteprima</span>
             </div>
           </div>
           <div style="flex:1 1 380px;min-width:min(300px,100%)">
@@ -760,8 +766,14 @@
       <sc-for list="{{ formats }}" as="f" hint-placeholder-count="3">
         <article style="display:flex;flex-direction:column;background:{{ f.bg }};border:1px solid {{ f.bd }};border-radius:4px;overflow:hidden;transition:border-color .3s,background .3s;position:relative">
           <sc-if value="{{ f.feat }}" hint-placeholder-val="{{ false }}"><span style="position:absolute;top:16px;left:16px;z-index:2;font:500 10px/1 var(--sans);letter-spacing:.16em;text-transform:uppercase;color:#fff;background:var(--accent);padding:8px 12px;border-radius:2px">Il Più Scelto</span></sc-if>
-          <div style="aspect-ratio:5/4;position:relative;background-color:#EAE2D2;background-image:repeating-linear-gradient(135deg,rgba(94,75,54,.06) 0 1px,transparent 1px 15px);display:flex;align-items:center;justify-content:center">
-            <span style="font:500 10px/1.4 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:#A79E8C;border:1px solid rgba(94,75,54,.2);padding:7px 11px">{{ f.name }}</span>
+          <div style="aspect-ratio:5/4;position:relative;background-color:#EAE2D2;display:flex;align-items:center;justify-content:center;padding:9% 9% 11%;overflow:hidden;perspective:900px">
+            <span style="display:block;height:100%;aspect-ratio:4/5;position:relative;background:{{ f.frameBg }};padding:{{ f.framePad }};box-shadow:{{ f.frameShadow }};transform:{{ f.frameTransform }};transition:transform .45s ease">
+              <span style="display:block;width:100%;height:100%;position:relative;overflow:hidden">
+                <img src="{{ f.img }}" alt="{{ f.name }}" loading="lazy" style="width:100%;height:100%;object-fit:cover;object-position:{{ f.pos }};transform:scale({{ f.sc }});filter:{{ f.filter }};display:block">
+                <span aria-hidden="true" style="position:absolute;inset:0;background:{{ f.tint }};mix-blend-mode:{{ f.blend }}"></span>
+                <span aria-hidden="true" style="position:absolute;inset:0;background:{{ f.warm }};mix-blend-mode:soft-light"></span>
+              </span>
+            </span>
           </div>
           <div style="padding:clamp(24px,2.4vw,34px);display:flex;flex-direction:column;flex:1">
             <h3 style="font:400 clamp(1.5rem,2vw,1.9rem)/1.1 var(--display);margin:0 0 6px">{{ f.name }}</h3>
@@ -814,7 +826,11 @@
       <aside style="flex:0 1 380px;min-width:min(300px,100%);position:sticky;top:96px;background:var(--paper);border:1px solid var(--line2);border-radius:4px;padding:clamp(26px,3vw,38px)">
         <span style="display:block;font:500 12px/1 var(--sans);letter-spacing:.2em;text-transform:uppercase;color:var(--accent);margin-bottom:26px">La Tua Commissione</span>
         <div style="display:flex;gap:18px;padding-bottom:24px;border-bottom:1px solid var(--line2)">
-          <div style="width:76px;height:92px;flex:none;background-color:#EAE2D2;background-image:repeating-linear-gradient(135deg,rgba(94,75,54,.06) 0 1px,transparent 1px 12px);border-radius:2px"></div>
+          <div style="width:76px;height:92px;flex:none;position:relative;overflow:hidden;border-radius:2px;background-color:#EAE2D2">
+            <img src="{{ preview.img }}" alt="" loading="lazy" style="width:100%;height:100%;object-fit:cover;object-position:{{ preview.pos }};transform:scale({{ preview.sc }});filter:{{ preview.filter }};display:block">
+            <span aria-hidden="true" style="position:absolute;inset:0;background:{{ preview.tint }};mix-blend-mode:{{ preview.blend }}"></span>
+            <span aria-hidden="true" style="position:absolute;inset:0;background:{{ preview.warm }};mix-blend-mode:soft-light"></span>
+          </div>
           <div><span style="display:block;font:400 1.15rem/1.25 var(--display);color:var(--ink);margin-bottom:6px">{{ summary.itemTitle }}</span><span style="display:block;font:400 12.5px/1.5 var(--sans);color:var(--ink3)">{{ summary.artistStyle }} · {{ summary.conceptLabel }}</span></div>
         </div>
         <div style="display:flex;flex-direction:column;gap:14px;padding:24px 0;border-bottom:1px solid var(--line2)">
@@ -844,7 +860,11 @@
 
     <div style="background:var(--paper);border:1px solid var(--line2);border-radius:4px;padding:clamp(26px,3vw,36px);margin-bottom:clamp(32px,4vw,44px)">
       <div style="display:flex;gap:18px;padding-bottom:24px;border-bottom:1px solid var(--line2)">
-        <div style="width:70px;height:86px;flex:none;background-color:#EAE2D2;background-image:repeating-linear-gradient(135deg,rgba(94,75,54,.06) 0 1px,transparent 1px 12px);border-radius:2px"></div>
+        <div style="width:70px;height:86px;flex:none;position:relative;overflow:hidden;border-radius:2px;background-color:#EAE2D2">
+            <img src="{{ preview.img }}" alt="" loading="lazy" style="width:100%;height:100%;object-fit:cover;object-position:{{ preview.pos }};transform:scale({{ preview.sc }});filter:{{ preview.filter }};display:block">
+            <span aria-hidden="true" style="position:absolute;inset:0;background:{{ preview.tint }};mix-blend-mode:{{ preview.blend }}"></span>
+            <span aria-hidden="true" style="position:absolute;inset:0;background:{{ preview.warm }};mix-blend-mode:soft-light"></span>
+          </div>
         <div style="flex:1"><span style="display:block;font:400 1.2rem/1.25 var(--display);color:var(--ink);margin-bottom:6px">{{ order.itemTitle }}</span><span style="display:block;font:400 12.5px/1.5 var(--sans);color:var(--ink3)">{{ order.formatLabel }} · {{ order.styleLabel }}</span></div>
         <span style="font:300 1.4rem/1 var(--display);color:var(--ink);white-space:nowrap">{{ order.priceLabel }}</span>
       </div>
@@ -962,7 +982,7 @@ class Component extends DCLogic {
     screen:'home', scrolled:false, mobileNav:false, vw: (typeof window!=='undefined'?window.innerWidth:1200),
     artistId:0, faqOpen:0,
     cStep:1, cArtist:null, cDesc:'', cRef:false, cRefName:'', cStyle:'',
-    generating:false, generated:false, concept:null,
+    generating:false, generated:false, concept:null, conceptSeed:0,
     adjPalette:0, adjWarm:52, adjBright:50, adjContrast:48,
     format:null, custName:'', placed:false, certId:'', certDate:''
   };
@@ -1148,7 +1168,7 @@ class Component extends DCLogic {
   pickStyle=(id)=>this.setState({cStyle:id});
 
   // ---- ai preview ----
-  generate=()=>{ this.setState({generating:true,generated:false,concept:null}); this.go('aipreview'); clearTimeout(this._gt); this._gt=setTimeout(()=>this.setState({generating:false,generated:true,concept:0}),2500); };
+  generate=()=>{ this.setState({generating:true,generated:false,concept:null,conceptSeed:this.state.conceptSeed+1}); this.go('aipreview'); clearTimeout(this._gt); this._gt=setTimeout(()=>this.setState({generating:false,generated:true,concept:0}),2500); };
   selectConcept=(i)=>this.setState({concept:i});
   setAdj=(k,v)=>this.setState({[k]:Number(v)});
   pickAdjPalette=(i)=>this.setState({adjPalette:i});
@@ -1207,12 +1227,52 @@ class Component extends DCLogic {
     const styleOptions = [{id:'faithful',name:'Molto Fedele',desc:'Uno studio ravvicinato e rispettoso, reso con la mano e la tavolozza dell’artista.'},{id:'inspired',name:'Ispirato',desc:'Il tuo soggetto visto attraverso la sensibilità dell’artista — familiare, eppure trasformato.'},{id:'creative',name:'Reinterpretazione Creativa',desc:'Una deviazione audace e originale. L’artista, libero sulla tua idea.'}].map(o=>{ const sel=s.cStyle===o.id; return { id:o.id, name:o.name, desc:o.desc, sel, bd:sel?accent:'rgba(33,30,25,.12)', bg:sel?'rgba(167,138,94,.07)':'var(--card)', pick:()=>this.pickStyle(o.id) }; });
 
     // ---- ai preview ----
-    const concepts = [{n:'I',note:'Interpretazione fedele'},{n:'II',note:'Composizione equilibrata'},{n:'III',note:'Variazione espressiva'}].map((c,i)=>{ const sel=s.concept===i; return { n:c.n, note:c.note, idx:i, sel, bd:sel?accent:'rgba(33,30,25,.12)', pick:()=>this.selectConcept(i) }; });
-    const adjPalettes = [{name:'Come Generato',sw:['#c9b8a0','#8f7250','#4a3b2c','#e8dcc8']},{name:'Ora Dorata',sw:['#e6c89a','#c99b5f','#7a5a34','#f2e6cf']},{name:'Notturno',sw:['#3a4a5e','#5a6b82','#26303f','#c7cdd8']},{name:'Verdeggiante',sw:['#7d8c6a','#556149','#2f3a28','#cdd3bd']}].map((pl,i)=>{ const sel=s.adjPalette===i; return { name:pl.name, sw:pl.sw, sel, bd:sel?accent:'rgba(33,30,25,.12)', pick:()=>this.pickAdjPalette(i) }; });
+    // The three "AI concepts" are one painting by the chosen artist, framed
+    // three ways — same subject, same hand, three different details. There is
+    // no generation here; the flow is a prototype and says so in the FAQ.
+    const baseArtist = cArtistObj || this.artists[0];
+    const baseWorks = this.buildArtworks(baseArtist);
+    const baseWork = baseWorks[(s.conceptSeed*3) % baseWorks.length];
+    const refWork  = baseWorks[(s.conceptSeed*3+4) % baseWorks.length];
+    const CONCEPT_VIEWS = [
+      {n:'I',   note:'Interpretazione fedele',   pos:'50% 45%', sc:'1'},
+      {n:'II',  note:'Composizione equilibrata', pos:'28% 34%', sc:'1.42'},
+      {n:'III', note:'Variazione espressiva',    pos:'74% 64%', sc:'1.82'}
+    ];
+    const concepts = CONCEPT_VIEWS.map((c,i)=>{ const sel=s.concept===i; return { n:c.n, note:c.note, idx:i, sel, img:baseWork.img, pos:c.pos, sc:c.sc, bd:sel?accent:'rgba(33,30,25,.12)', pick:()=>this.selectConcept(i) }; });
+
+    const PALETTES = [
+      {name:'Come Generato',sw:['#c9b8a0','#8f7250','#4a3b2c','#e8dcc8'],tint:'rgba(0,0,0,0)',         blend:'normal'},
+      {name:'Ora Dorata',   sw:['#e6c89a','#c99b5f','#7a5a34','#f2e6cf'],tint:'rgba(232,190,116,.40)', blend:'overlay'},
+      {name:'Notturno',     sw:['#3a4a5e','#5a6b82','#26303f','#c7cdd8'],tint:'rgba(44,64,98,.50)',    blend:'multiply'},
+      {name:'Verdeggiante', sw:['#7d8c6a','#556149','#2f3a28','#cdd3bd'],tint:'rgba(108,134,86,.40)',  blend:'overlay'}
+    ];
+    const adjPalettes = PALETTES.map((pl,i)=>{ const sel=s.adjPalette===i; return { name:pl.name, sw:pl.sw, sel, bd:sel?accent:'rgba(33,30,25,.12)', pick:()=>this.pickAdjPalette(i) }; });
     const selConceptLabel = s.concept!=null ? ['I','II','III'][s.concept] : 'I';
 
+    // Sliders (0-100, 50 neutral) become a CSS filter plus two blended
+    // overlays — a live colour grade without touching pixel data.
+    const pal = PALETTES[s.adjPalette] || PALETTES[0];
+    const warmK = (s.adjWarm-50)/50;
+    const f3 = (v)=>Number(v).toFixed(3);
+    const adjFilter = 'brightness('+f3(0.74+s.adjBright/100*0.52)+') contrast('+f3(0.74+s.adjContrast/100*0.52)+') saturate('+f3(0.88+Math.abs(warmK)*0.34)+')'
+      + (warmK>0 ? ' sepia('+f3(warmK*0.42)+')' : '')
+      + (warmK<0 ? ' hue-rotate('+f3(warmK*16)+'deg)' : '');
+    const adjWarmTint = warmK>=0 ? 'rgba(226,150,64,'+f3(warmK*0.30)+')' : 'rgba(72,132,206,'+f3(-warmK*0.30)+')';
+    const selConcept = concepts[s.concept!=null ? s.concept : 0];
+    const preview = { img:selConcept.img, pos:selConcept.pos, sc:selConcept.sc,
+                      filter:adjFilter, tint:pal.tint, blend:pal.blend, warm:adjWarmTint };
+    const refImg = refWork.img;
+
     // ---- purchase / summary ----
-    const formats = this.formatsData.map(f=>{ const sel=s.format===f.id; return { ...f, priceLabel:this.fmt(f.price), sel, notSel:!sel, feat:!!f.featured, bd:sel?accent:'rgba(33,30,25,.12)', bg:sel?'rgba(167,138,94,.06)':'var(--card)', pick:()=>this.chooseFormat(f.id) }; });
+    // Same approved image, three presentations: a bare file, a matted print,
+    // and a stretched canvas turned slightly off-axis.
+    const FORMAT_VIEW = {
+      digital:{pad:'0',           frame:'transparent', shadow:'0 12px 30px rgba(33,30,25,.20)',  transform:'none'},
+      print:  {pad:'8% 8% 15%',   frame:'#FCFAF6',     shadow:'0 8px 26px rgba(33,30,25,.17)',   transform:'none'},
+      canvas: {pad:'0',           frame:'transparent', shadow:'18px 20px 38px rgba(33,30,25,.34)',transform:'rotateY(-15deg) rotateX(3deg)'}
+    };
+    const formats = this.formatsData.map(f=>{ const sel=s.format===f.id; const v=FORMAT_VIEW[f.id]||FORMAT_VIEW.digital; return { ...f, priceLabel:this.fmt(f.price), sel, notSel:!sel, feat:!!f.featured, bd:sel?accent:'rgba(33,30,25,.12)', bg:sel?'rgba(167,138,94,.06)':'var(--card)', framePad:v.pad, frameBg:v.frame, frameShadow:v.shadow, frameTransform:v.transform, img:preview.img, pos:preview.pos, sc:preview.sc, filter:preview.filter, tint:preview.tint, blend:preview.blend, warm:preview.warm, pick:()=>this.chooseFormat(f.id) }; });
     const fmtObj = formats.find(f=>f.id===s.format) || null;
     const artistName = cArtistObj ? cArtistObj.name : 'L’Atelier Aurelia';
     const styleLabel = {faithful:'Molto Fedele',inspired:'Ispirato',creative:'Reinterpretazione Creativa'}[s.cStyle] || 'Ispirato';
@@ -1236,7 +1296,7 @@ class Component extends DCLogic {
       step1:s.cStep===1, step2:s.cStep===2, step3:s.cStep===3, step4:s.cStep===4, step5:s.cStep===5,
       notLast:s.cStep<5, cantContinue:!this.canContinue(), canContinue:this.canContinue(), cNext:this.cNext, cBack:this.cBack, setDesc:this.setDesc, addRef:this.addRef, clearRef:this.clearRef, generate:this.generate,
       isPreview:s.screen==='aipreview', generating:s.generating, generated:s.generated, concept:s.concept, hasConcept:s.concept!=null, selConceptLabel,
-      concepts, adjPalettes, adjWarm:s.adjWarm, adjBright:s.adjBright, adjContrast:s.adjContrast,
+      concepts, adjPalettes, preview, refImg, adjWarm:s.adjWarm, adjBright:s.adjBright, adjContrast:s.adjContrast,
       setWarm:(e)=>this.setAdj('adjWarm',e.target.value), setBright:(e)=>this.setAdj('adjBright',e.target.value), setContrast:(e)=>this.setAdj('adjContrast',e.target.value),
       regenerate:this.generate, toPurchase:()=>this.go('purchase'),
       isPurchase:s.screen==='purchase', formats, purchaseReady:s.format!=null, notReady:s.format==null, toCheckout:()=>{ if(this.state.format!=null) this.go('checkout'); }, cArtistName:artistName,
