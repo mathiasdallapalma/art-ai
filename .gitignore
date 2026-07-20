@@ -1,0 +1,5 @@
+# Build output — 41 MB single-file bundle, regenerate with `node tools/build.js`.
+# Remove this line (or `git add -f dist/index.html`) if you want to commit it.
+dist/
+
+node_modules/

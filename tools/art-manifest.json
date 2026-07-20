@@ -1,0 +1,360 @@
+{
+  "portraits": {
+    "van-gogh": {
+      "file": "assets/portraits/van-gogh.jpg",
+      "source": "Vincent van Gogh",
+      "bytes": 817315
+    },
+    "monet": {
+      "file": "assets/portraits/monet.jpg",
+      "source": "Claude Monet",
+      "bytes": 299442
+    },
+    "hokusai": {
+      "file": "assets/portraits/hokusai.jpg",
+      "source": "Hokusai",
+      "bytes": 695072
+    },
+    "vermeer": {
+      "file": "assets/portraits/vermeer.jpg",
+      "source": "Johannes Vermeer",
+      "bytes": 158312
+    },
+    "turner": {
+      "file": "assets/portraits/turner.jpg",
+      "source": "J. M. W. Turner",
+      "bytes": 388026
+    },
+    "klimt": {
+      "file": "assets/portraits/klimt.jpg",
+      "source": "Gustav Klimt",
+      "bytes": 417493
+    }
+  },
+  "works": {
+    "0-0": {
+      "file": "assets/works/van-gogh-01.jpg",
+      "query": "The Starry Night",
+      "source": "The Starry Night",
+      "bytes": 618432
+    },
+    "0-1": {
+      "file": "assets/works/van-gogh-02.jpg",
+      "query": "Wheat Field with Cypresses",
+      "source": "Wheat Field with Cypresses",
+      "bytes": 575388
+    },
+    "0-2": {
+      "file": "assets/works/van-gogh-03.jpg",
+      "query": "Almond Blossoms",
+      "source": "Almond Blossoms",
+      "bytes": 454950
+    },
+    "0-3": {
+      "file": "assets/works/van-gogh-04.jpg",
+      "query": "The Yellow House",
+      "source": "The Yellow House",
+      "bytes": 434302
+    },
+    "0-4": {
+      "file": "assets/works/van-gogh-05.jpg",
+      "query": "Irises (painting)",
+      "source": "Irises (painting)",
+      "bytes": 595420
+    },
+    "0-5": {
+      "file": "assets/works/van-gogh-06.jpg",
+      "query": "The Night Café",
+      "source": "The Night Café",
+      "bytes": 483173
+    },
+    "0-6": {
+      "file": "assets/works/van-gogh-07.jpg",
+      "query": "Wheatfield with Crows",
+      "source": "Wheatfield with Crows",
+      "bytes": 395981
+    },
+    "0-7": {
+      "file": "assets/works/van-gogh-08.jpg",
+      "query": "Portrait of Dr. Gachet",
+      "source": "Portrait of Dr. Gachet",
+      "bytes": 289340
+    },
+    "0-8": {
+      "file": "assets/works/van-gogh-09.jpg",
+      "query": "Café Terrace at Night",
+      "source": "Café Terrace at Night",
+      "bytes": 700545
+    },
+    "1-0": {
+      "file": "assets/works/monet-01.jpg",
+      "query": "Impression, Sunrise",
+      "source": "Impression, Sunrise",
+      "bytes": 302320
+    },
+    "1-1": {
+      "file": "assets/works/monet-02.jpg",
+      "query": "Water Lilies (Monet series)",
+      "source": "Water Lilies (Monet series)",
+      "bytes": 243752
+    },
+    "1-2": {
+      "file": "assets/works/monet-03.jpg",
+      "query": "Bridge over a Pond of Water Lilies",
+      "source": "File:Bridge Over a Pond of Water Lilies, Claude Monet 1899.jpg",
+      "bytes": 1037064
+    },
+    "1-3": {
+      "file": "assets/works/monet-04.jpg",
+      "query": "Haystacks (Monet series)",
+      "source": "Haystacks (Monet series)",
+      "bytes": 469883
+    },
+    "1-4": {
+      "file": "assets/works/monet-05.jpg",
+      "query": "Poplars (Monet series)",
+      "source": "Poplars (Monet series)",
+      "bytes": 599765
+    },
+    "1-5": {
+      "file": "assets/works/monet-06.jpg",
+      "query": "Rouen Cathedral (Monet series)",
+      "source": "Rouen Cathedral (Monet series)",
+      "bytes": 57136
+    },
+    "1-6": {
+      "file": "assets/works/monet-07.jpg",
+      "query": "Woman with a Parasol",
+      "source": "File:Claude Monet - Woman with a Parasol - Madame Monet and Her Son - Google Art Project.jpg",
+      "bytes": 726096
+    },
+    "1-7": {
+      "file": "assets/works/monet-08.jpg",
+      "query": "The Artist's Garden at Giverny",
+      "source": "The Artist's Garden at Giverny",
+      "bytes": 329792
+    },
+    "1-8": {
+      "file": "assets/works/monet-09.jpg",
+      "query": "The Magpie (Monet)",
+      "source": "The Magpie (Monet)",
+      "bytes": 357912
+    },
+    "2-0": {
+      "file": "assets/works/hokusai-01.jpg",
+      "query": "The Great Wave off Kanagawa",
+      "source": "The Great Wave off Kanagawa",
+      "bytes": 444927
+    },
+    "2-1": {
+      "file": "assets/works/hokusai-02.jpg",
+      "query": "Fine Wind, Clear Morning",
+      "source": "Fine Wind, Clear Morning",
+      "bytes": 397722
+    },
+    "2-2": {
+      "file": "assets/works/hokusai-03.jpg",
+      "query": "Kajikazawa in Kai Province",
+      "source": "Kajikazawa in Kai Province",
+      "bytes": 107778
+    },
+    "2-3": {
+      "file": "assets/works/hokusai-04.jpg",
+      "query": "Ejiri in Suruga Province",
+      "source": "File:Ejiri in the Suruga province.jpg",
+      "bytes": 445560
+    },
+    "2-4": {
+      "file": "assets/works/hokusai-05.jpg",
+      "query": "Rainstorm Beneath the Summit",
+      "source": "File:'Thunderstorm beneath the Summit' by Hokusai, Honolulu Museum of Art.jpg",
+      "bytes": 77981
+    },
+    "2-5": {
+      "file": "assets/works/hokusai-06.jpg",
+      "query": "Tama River in Musashi Province",
+      "source": "File:Tama river in the Musashi province.jpg",
+      "bytes": 264899
+    },
+    "2-6": {
+      "file": "assets/works/hokusai-07.jpg",
+      "query": "Sundai, Edo",
+      "source": "Sundai, Edo",
+      "bytes": 491382
+    },
+    "2-7": {
+      "file": "assets/works/hokusai-08.jpg",
+      "query": "Amida Falls",
+      "source": "File:諸國瀧廻リ 木曽路ノ奥 阿彌陀ヶ瀧-The Amida Falls in the Far Reaches of the Kisokaidō Road (Kisoji no oku Amida-ga-taki), from the series A Tour of Waterfalls in Various Provinces (Shokoku taki meguri) MET DP141251.jpg",
+      "bytes": 937192
+    },
+    "2-8": {
+      "file": "assets/works/hokusai-09.jpg",
+      "query": "Cushion Pine at Aoyama",
+      "source": "File:Aoyama enza no matsu LCCN2009615411.jpg",
+      "bytes": 312736
+    },
+    "3-0": {
+      "file": "assets/works/vermeer-01.jpg",
+      "query": "Girl with a Pearl Earring",
+      "source": "Girl with a Pearl Earring",
+      "bytes": 594446
+    },
+    "3-1": {
+      "file": "assets/works/vermeer-02.png",
+      "query": "The Milkmaid (Vermeer)",
+      "source": "The Milkmaid (Vermeer)",
+      "bytes": 2997214
+    },
+    "3-2": {
+      "file": "assets/works/vermeer-03.jpg",
+      "query": "Girl Reading a Letter at an Open Window",
+      "source": "Girl Reading a Letter at an Open Window",
+      "bytes": 705450
+    },
+    "3-3": {
+      "file": "assets/works/vermeer-04.jpg",
+      "query": "The Geographer",
+      "source": "The Geographer",
+      "bytes": 468112
+    },
+    "3-4": {
+      "file": "assets/works/vermeer-05.jpg",
+      "query": "The Lacemaker (Vermeer)",
+      "source": "The Lacemaker (Vermeer)",
+      "bytes": 677957
+    },
+    "3-5": {
+      "file": "assets/works/vermeer-06.jpg",
+      "query": "Woman with a Lute",
+      "source": "Woman with a Lute",
+      "bytes": 332827
+    },
+    "3-6": {
+      "file": "assets/works/vermeer-07.jpg",
+      "query": "The Art of Painting",
+      "source": "The Art of Painting",
+      "bytes": 463051
+    },
+    "3-7": {
+      "file": "assets/works/vermeer-08.jpg",
+      "query": "View of Delft",
+      "source": "View of Delft",
+      "bytes": 403162
+    },
+    "3-8": {
+      "file": "assets/works/vermeer-09.jpg",
+      "query": "Woman Holding a Balance",
+      "source": "Woman Holding a Balance",
+      "bytes": 459092
+    },
+    "4-0": {
+      "file": "assets/works/turner-01.jpg",
+      "query": "The Fighting Temeraire",
+      "source": "The Fighting Temeraire",
+      "bytes": 235748
+    },
+    "4-1": {
+      "file": "assets/works/turner-02.jpg",
+      "query": "Rain, Steam and Speed",
+      "source": "Rain, Steam and Speed – The Great Western Railway",
+      "bytes": 299254
+    },
+    "4-2": {
+      "file": "assets/works/turner-03.jpg",
+      "query": "Snow Storm: Steam-Boat off a Harbour's Mouth",
+      "source": "Snow Storm: Steam-Boat off a Harbour's Mouth",
+      "bytes": 481745
+    },
+    "4-3": {
+      "file": "assets/works/turner-04.jpg",
+      "query": "The Slave Ship",
+      "source": "The Slave Ship",
+      "bytes": 328784
+    },
+    "4-4": {
+      "file": "assets/works/turner-05.jpg",
+      "query": "Norham Castle, Sunrise",
+      "source": "Norham Castle, Sunrise",
+      "bytes": 168689
+    },
+    "4-5": {
+      "file": "assets/works/turner-06.jpg",
+      "query": "Dido building Carthage",
+      "source": "Dido building Carthage",
+      "bytes": 1002587
+    },
+    "4-6": {
+      "file": "assets/works/turner-07.jpg",
+      "query": "The Burning of the Houses of Lords and Commons",
+      "source": "The Burning of the Houses of Lords and Commons",
+      "bytes": 408450
+    },
+    "4-7": {
+      "file": "assets/works/turner-08.jpg",
+      "query": "Ulysses Deriding Polyphemus",
+      "source": "Ulysses Deriding Polyphemus",
+      "bytes": 279248
+    },
+    "4-8": {
+      "file": "assets/works/turner-09.jpg",
+      "query": "Chichester Canal",
+      "source": "Chichester Canal",
+      "bytes": 206827
+    },
+    "5-0": {
+      "file": "assets/works/klimt-01.jpg",
+      "query": "Portrait of Adele Bloch-Bauer I",
+      "source": "Portrait of Adele Bloch-Bauer I",
+      "bytes": 551935
+    },
+    "5-1": {
+      "file": "assets/works/klimt-02.jpg",
+      "query": "The Kiss (Klimt)",
+      "source": "The Kiss (Klimt)",
+      "bytes": 715229
+    },
+    "5-2": {
+      "file": "assets/works/klimt-03.jpg",
+      "query": "Danaë (Klimt)",
+      "source": "Danaë (Klimt)",
+      "bytes": 338859
+    },
+    "5-3": {
+      "file": "assets/works/klimt-04.jpg",
+      "query": "Stoclet Frieze",
+      "source": "Stoclet Frieze",
+      "bytes": 1014376
+    },
+    "5-4": {
+      "file": "assets/works/klimt-05.jpg",
+      "query": "Water Serpents I",
+      "source": "Water Serpents I",
+      "bytes": 663900
+    },
+    "5-5": {
+      "file": "assets/works/klimt-06.jpg",
+      "query": "Birch Forest (Klimt)",
+      "source": "File:Gustav Klimt, Birch Forest, 1903 - Paul G. Allen Collection.jpg",
+      "bytes": 938451
+    },
+    "5-6": {
+      "file": "assets/works/klimt-07.jpg",
+      "query": "Portrait of Adele Bloch-Bauer II",
+      "source": "Portrait of Adele Bloch-Bauer II",
+      "bytes": 617138
+    },
+    "5-7": {
+      "file": "assets/works/klimt-08.jpg",
+      "query": "Judith and the Head of Holofernes",
+      "source": "File:Judith 1 (cropped).jpg",
+      "bytes": 1333261
+    },
+    "5-8": {
+      "file": "assets/works/klimt-09.jpg",
+      "query": "Death and Life",
+      "source": "Death and Life",
+      "bytes": 482290
+    }
+  }
+}
